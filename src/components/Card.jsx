@@ -2,7 +2,17 @@ import React from "react";
 
 function Card({ name, image, onClick }) {
 	return (
-		<div className='card' onClick={onClick} role='button'>
+		<div
+			className='card'
+			onClick={onClick}
+			role='button'
+			onKeyDown={(e) => {
+				if (e.key === "Enter" || e.key === " ") {
+					onClick();
+				}
+			}}
+			tabIndex='0'
+		>
 			<div className='card-content'>
 				<img src={image} alt='' />
 				<p>{name}</p>
