@@ -1,35 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from "react";
+import "./App.css";
+import shuffleArray from "./utils/shuffleArray";
+import Card from "./components/Card";
 
 function App() {
-  const [count, setCount] = useState(0)
+	const cardCount = 12;
+	const [cards, setCards] = useState([]);
+	const [score, setScore] = useState(0);
+	const [bestScore, setBestScore] = useState(0);
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+	useEffect(() => {
+		fetch("https://botw-compendium.herokuapp.com/api/v3/compendium/category/monsters")
+			.then((res) => res.json())
+			.then((data) => {
+				const monters = shuffleArray(data.data).slice(0, cardCount);
+				const selectedMonsters = monters.map((monster) => ({
+					name: monster.name,
+					id: monster.id,
+					clicked: false,
+					image: monster.image,
+				}));
+				setCards(selectedMonsters);
+			});
+	}, []);
+
+	function handleCardClick() {
+		
+	}
+
+	return (
+		<>
+			<h1>Zelda Memory Game</h1>
+			<div class='cards'>
+				{cards.map((card) => (
+					<Card key={card.id} name={card.name} image={card.image} onClick={() => handleCardClick(card.id)} />
+				))}
+			</div>
+		</>
+	);
 }
 
-export default App
+export default App;
