@@ -26,26 +26,21 @@ function App() {
 	}, []);
 
 	function handleCardClick(cardId) {
-		setCards((previousCardState) => {
-			const updatedCards = previousCardState.map((card) => {
-				if (card.id === cardId) {
-					if (card.clicked) {
-						if (score > bestScore) {
-							setBestScore(score);
-						}
+		const clickedCard = cards.find((card) => card.id === cardId);
 
-						setCards((prevState) => prevState.map((card) => ({ ...card, clicked: false })));
-						return { ...card, clicked: false };
-					}
+		if (clickedCard.clicked) {
+			if (score > bestScore) {
+				setBestScore(score);
+			}
 
-					return { ...card, clicked: true };
-				}
-
-				return card;
-			});
-
-			return shuffleArray(updatedCards);
-		});
+			const resetCards = cards.map((card) => ({ ...card, clicked: false }));
+			setCards(shuffleArray(resetCards));
+		} else {
+			const updatedCards = cards.map(card => ({
+				...card, clicked: card.id === cardId ? true : card.clicked
+			}));
+			setCards(shuffleArray(updatedCards));
+		}
 	}
 
 	return (
