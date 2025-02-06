@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import shuffleArray from "./utils/shuffleArray";
 import Card from "./components/Card";
+import WorldClock from "./components/WorldClock";
 
 function App() {
 	const cardCount = 12;
@@ -62,6 +63,7 @@ function App() {
 					<Card key={card.id} name={card.name} image={card.image} onClick={() => handleCardClick(card.id)} />
 				))}
 			</div>
+			<WorldClock></WorldClock>
 		</>
 	);
 }

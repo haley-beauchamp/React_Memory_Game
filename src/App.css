@@ -22,6 +22,11 @@
 	gap: 1.5em 2em;
 }
 
+.card img {
+  width: 280px;
+  height: auto;
+}
+
 .align {
   display: flex;
   flex-direction: row;
