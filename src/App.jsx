@@ -29,12 +29,13 @@ function App() {
 	function handleCardClick(cardId) {
 		const clickedCard = cards.find((card) => card.id === cardId);
 
+		// If a card was previously clicked (repeated click, loss condition)
 		if (clickedCard.clicked) {
 			if (score > bestScore) {
 				setBestScore(score);
 			}
 
-			const resetCards = cards.map((card) => ({ ...card, clicked: false }));
+			const resetCards = cards.map((card) => ({ ...card, clicked: false })); // Set clicked status of all cards to false to restart the game and reset score
 			setCards(shuffleArray(resetCards));
 		} else {
 			const updatedCards = cards.map((card) => ({
