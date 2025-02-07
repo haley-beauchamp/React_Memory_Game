@@ -8,12 +8,13 @@
 	color: #fadea9;
 	text-align: center;
 	background-color: #3c66cc;
-  padding: 1em;
+	padding: 1em;
 }
 
-.card:hover, .card:focus {
-  cursor: pointer;
-  box-shadow: 0px 0px 40px #fadea9;
+.card:hover,
+.card:focus {
+	cursor: pointer;
+	box-shadow: 0px 0px 40px #fadea9;
 }
 
 .cards {
@@ -23,16 +24,16 @@
 }
 
 .card img {
-  width: 280px;
-  height: auto;
+	width: 280px;
+	height: auto;
 }
 
 .align {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }
 
 .scores {
-  text-align: right;
+	text-align: right;
 }

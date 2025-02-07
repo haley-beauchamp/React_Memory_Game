@@ -7,14 +7,15 @@ import WorldClock from "./components/WorldClock";
 function App() {
 	const cardCount = 12;
 	const [cards, setCards] = useState([]);
-	const score = cards.filter((card) => card.clicked).length;
+	const score = cards.filter((card) => card.clicked).length; // Track score using the number of cards that have been clicked
 	const [bestScore, setBestScore] = useState(0);
 
+	// Fetch data from Hyrule Compendium API and create cards based on them
 	useEffect(() => {
 		fetch("https://botw-compendium.herokuapp.com/api/v3/compendium/category/monsters")
 			.then((res) => res.json())
 			.then((data) => {
-				const monsters = shuffleArray(data.data).slice(0, cardCount);
+				const monsters = shuffleArray(data.data).slice(0, cardCount); // Pick random entries from the API
 				const selectedMonsters = monsters.map((monster) => ({
 					name: monster.name,
 					id: monster.id,
@@ -36,8 +37,9 @@ function App() {
 			const resetCards = cards.map((card) => ({ ...card, clicked: false }));
 			setCards(shuffleArray(resetCards));
 		} else {
-			const updatedCards = cards.map(card => ({
-				...card, clicked: card.id === cardId ? true : card.clicked
+			const updatedCards = cards.map((card) => ({
+				...card,
+				clicked: card.id === cardId ? true : card.clicked, // If card id matches, set clicked to true. Otherwise leave it as it is
 			}));
 			setCards(shuffleArray(updatedCards));
 		}

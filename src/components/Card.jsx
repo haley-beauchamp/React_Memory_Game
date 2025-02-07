@@ -14,7 +14,7 @@ function Card({ name, image, onClick }) {
 			tabIndex='0'
 		>
 			<div className='card-content'>
-				<img src={image} alt='' />
+				<img src={image} alt='' /> {/* Empty alt because image is described by text near it */}
 				<p>{name}</p>
 			</div>
 		</div>

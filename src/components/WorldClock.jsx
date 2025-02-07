@@ -11,7 +11,7 @@ export default function WorldClock() {
 	useEffect(() => {
 		const interval = setInterval(() => {
 			setTime(moment.tz(selectedTimezone).format(timezoneFormat));
-		}, 1000);
+		}, 1000); // Update time every second
 
 		return () => clearInterval(interval);
 	}, [selectedTimezone]);

@@ -26,9 +26,11 @@ h1 {
 	line-height: 1.1;
 }
 
-p, label, select {
-  font-weight: bold;
-  font-size: 16pt;
+p,
+label,
+select {
+	font-weight: bold;
+	font-size: 16pt;
 }
 
 select {
