@@ -25,6 +25,11 @@ A memory game in which a player clicks cards without repeating. When a card is c
 <img width="1430" alt="Captura de pantalla 2025-02-06 a la(s) 18 20 39" src="https://github.com/user-attachments/assets/3dcf9d85-a535-4778-8ee2-13d70428ea22" />
 <img width="1431" alt="Captura de pantalla 2025-02-06 a la(s) 18 21 43" src="https://github.com/user-attachments/assets/cc7cd097-62c4-4402-9198-f334884244e1" />
 
+## Future Work
+- Improve tabbing so that it doesn't follow a card, and instead focuses on whatever card takes its place
+- Improve page loading
+- Add difficulty levels to the game
+
 ## Learning Outcomes
 - Gained experience with state management and asynchronous programming in React
 - Learned to implement an external API in React
