@@ -18,13 +18,14 @@
 }
 
 .cards {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
+	display: flex;
+	flex-flow: row wrap;
 	gap: 1.5em 2em;
+	justify-content: center;
 }
 
 .card img {
-	width: 280px;
+	width: 100%;
 	height: auto;
 }
 
@@ -36,4 +37,13 @@
 
 .scores {
 	text-align: right;
+}
+
+@media (max-width: 750px) {
+	.card {
+		flex: calc(45% - 2em);
+	}
+	p {
+		font-size: 12pt;
+	}
 }

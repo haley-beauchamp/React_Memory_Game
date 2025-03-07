@@ -55,7 +55,7 @@ function App() {
 					<p>Best Score: {bestScore}</p>
 				</div>
 			</div>
-			<p>Click images to get points! Don't click on any image more than once.</p>
+			<p>Click images to get points! When you click, image order will be randomized. Don't click on any image more than once.</p>
 			<div className='cards'>
 				{cards.map((card) => (
 					<Card key={card.id} name={card.name} image={card.image} onClick={() => handleCardClick(card.id)} />
